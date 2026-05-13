@@ -1,0 +1,139 @@
+@page
+@model MyRazorApp.Pages.Students.AddStudentModel
+
+@{
+    ViewData["Title"] = "Add Student";
+    Layout = "";
+}
+
+<div class="container">
+    <h2>Add New Student</h2>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="error-message">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    <form method="post">
+
+        <div>
+            <label for="FirstName">First Name:</label>
+            <input type="text"
+                   id="FirstName"
+                   name="NewStudent.FirstName"
+                   required />
+        </div>
+
+        <div>
+            <label for="LastName">Last Name:</label>
+            <input type="text"
+                   id="LastName"
+                   name="NewStudent.LastName"
+                   required />
+        </div>
+
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email"
+                   id="Email"
+                   name="NewStudent.Email"
+                   required />
+        </div>
+
+        <div>
+            <label for="Address">Address:</label>
+            <textarea id="Address"
+                      name="NewStudent.Address"
+                      required></textarea>
+        </div>
+
+        <div>
+            <label for="Gender">Gender:</label>
+            <select id="Gender"
+                    name="NewStudent.Gender"
+                    required>
+
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+
+            </select>
+        </div>
+
+        <div>
+            <input type="submit" value="Add Student" />
+        </div>
+
+    </form>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .container {
+        width: 400px;
+        margin: 50px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    form div {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    textarea {
+        resize: vertical;
+        height: 80px;
+    }
+
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    .error-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+</style>
